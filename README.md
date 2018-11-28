@@ -2,11 +2,13 @@
 
 In this guide we will look at my setup for a reverse proxy for our go server using nginx.
 
-Create a projects folder named own-project, and inside it create two folders called jenkins and nginx, and touch a docker-compose.yml file.
+# Preliminaries
 
-We will now take a look at what these two folders contain, and the yml file, and see how they all interact with the bigger picture.
+Create a projects folder named own-project, and inside it create two folders called jenkins and nginx, and touch a docker-compose.yml file. We will now take a look at what these two folders contain, and the yml file, and see how they all interact with the bigger picture.
 
-We have the Dockerfile, which allows us to build the specified images e.g. prebuilt Jenkins images.
+# Jenkins folder
+
+Inside the Jenkins folder we have the Dockerfile, which allows us to build the specified images e.g. prebuilt Jenkins images.
 
 The docker-run deploys the container.
 
@@ -14,9 +16,9 @@ The init.groovy creates all of the defaults for the Jenkins user e.g. username=a
 
 The plugins.txt contains the plugins for Jenkins, so we don’t have to wait to install plugins on Jenkins startup like we usually do.
 
-Next, let’s see what’s inside the above jobs folder:
+The jobs folder contain what is essentially our server. When we run Jenkins, the above server will be the first thing we see. Next, let’s see what’s inside the go-server folder:
 
-This is essentially our server. When we run Jenkins, the above server will be the first thing we see. Let’s see what’s inside the go-server folder:
+# go-server folder
 
 The most important file in the go-server folder is the config.xml, what it contains is what will be within the build for the go-server on Jenkins. Thus, we automatically created a build for Jenkins. Below we will look at the config file by considering its components separately:
 
